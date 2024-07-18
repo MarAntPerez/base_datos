@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta http-equiv="refresh" content=".0000011" /> -->
+    <link rel="stylesheet" href="css/tabla.css" />
+    <title>Info</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-list">
+        <a href="#tabla-main">Tabla</a>
+        <a href="#aplicaciones">Aplicaciones</a>
+        <a href="#alta-usuario">Alta Usuarios</a>
+        <a href="#">Salir</a>
+      </div>
+    </nav>
+    <section id="tabla-main">
+      <div class="contenedor">
+        <h1>Usuarios</h1>
+        <div class="buscar">
+          <form id="form-buscar">
+            <input type="text" placeholder="Ingresa el nombre" id="buscar" />
+            <button type="submit" id="boton-buscar">Buscar</button>
+          </form>
+        </div>
+        <br />
+        <br />
+        <div class="tabla-contenedor">
+          <table border="2" class="tabla" id="tabla-usuarios">
+            <thead>
+              <td style="display: none">Id</td>
+              <td>Nombre</td>
+              <td>Apellido Paterno</td>
+              <td>Apellido Materno</td>
+            </thead>
+
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="aplicaciones">
+      <div class="apli-container">
+        <h1>Aplicaciones</h1>
+        <table border="2" class="tabla" id="tabla-aplicaciones">
+          <thead>
+            <td>Id</td>
+            <td>Nombre</td>
+            <td>Descripción</td>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="alta-usuario">
+      <div class="contenedor">
+        <h1>Alta de Usuario</h1>
+        <form id="form-alta">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" placeholder="Ingrese el nombre" />
+
+          <label for="apellido-paterno">Apellido Paterno:</label>
+          <input
+            type="text"
+            id="apellido-paterno"
+            placeholder="Ingrese el apellido paterno"
+          />
+
+          <label for="apellido-materno">Apellido Materno:</label>
+          <input
+            type="text"
+            id="apellido-materno"
+            placeholder="Inrese el apellido materno"
+          />
+
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/tablaUsuarios.js"></script>
+  </body>
+</html>
