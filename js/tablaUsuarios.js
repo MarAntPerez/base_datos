@@ -1,14 +1,41 @@
 var flagGoToBackend = true;
-const formTabla = document.querySelector(".formTabla");
+const formTabla = document.querySelector(".form-buscar");
 const listaUl = document.querySelector(".list");
 const tabla = document.querySelector(".tabla");
-const buscar = document.querySelector("#buscar").value;
-const boton = document.querySelector("buscar");
+const mostrar = document.querySelector(".mostrar");
 
-// boton.addEventListener("click", (event) => {
-//   event.preventDefault();
-//   console.log(buscar);
-// });
+formTabla.addEventListener("submit", (event) => {
+  const entrada = document.getElementById("buscar").value;
+  event.preventDefault();
+  console.log(entrada);
+
+  $("#tabla-usuarios tbody").empty();
+
+  for (var i = 0; i < list.length; i++) {
+    var id = list[i].id;
+    var name = list[i].name;
+    var lastname = list[i].lastname;
+    var secondLastname = list[i].secondLastname;
+    if (entrada == name) {
+      $("#tabla-usuarios tbody").append(
+        "<tr><td style='display: none'>" +
+          id +
+          "</td><td>" +
+          name +
+          "</td><td>" +
+          lastname +
+          "</td><td>" +
+          secondLastname +
+          "</td></tr>"
+      );
+    }
+  }
+});
+
+mostrar.addEventListener("click", () => {
+  $("#tabla-usuarios tbody").empty();
+  populateUsersTable(list);
+});
 
 var list = [
   {
