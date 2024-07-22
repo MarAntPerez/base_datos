@@ -21,7 +21,7 @@ formAlta.addEventListener("submit", (event) => {
   $.ajax({
     method: "POST",
     contentType: "application/json",
-    url: "http://192.168.1.12:8080/users",
+    url: "http://192.168.1.14:8080/users",
     data: jsonUser,
     success: function (datos, text) {
       alert("Datos enviados con exito");

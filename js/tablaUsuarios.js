@@ -18,7 +18,7 @@ formTabla.addEventListener("submit", (event) => {
     var secondLastname = list[i].secondLastname;
     if (entrada == name) {
       $("#tabla-usuarios tbody").append(
-        "<tr><td style='display: none'>" +
+        "<tr><td style='display: none' id='id'>" +
           id +
           "</td><td>" +
           name +
@@ -26,11 +26,31 @@ formTabla.addEventListener("submit", (event) => {
           lastname +
           "</td><td>" +
           secondLastname +
-          "</td></tr>"
+          "</td><td><button class='borrar' id='borrar'>Borrar</button></td></tr>"
       );
     }
   }
 });
+
+function funcionEliminar(myObject) {
+  console.log("me llamaste");
+  console.log("Id: " + myObject.id);
+
+  console.log("Despues de obtener id: " + myObject.id);
+  $.ajax({
+    method: "DELETE",
+    url: "http://192.168.1.14:8080/users/" + myObject.id,
+    success: function (datos, text) {
+      console.log(datos);
+      location.reload();
+      // alert("Usuario Eliminado");
+    },
+    error: function (request, status, error) {
+      alert("Hubo un problema con el servidor.");
+      populateUsersTable(datos);
+    },
+  });
+}
 
 mostrar.addEventListener("click", () => {
   $("#tabla-usuarios tbody").empty();
@@ -76,7 +96,7 @@ function populateUsersTable(list) {
     var secondLastname = list[i].secondLastname;
 
     $("#tabla-usuarios tbody").append(
-      "<tr><td style='display: none'>" +
+      "<tr><td style='display: none' id='id'>" +
         id +
         "</td><td>" +
         name +
@@ -84,15 +104,20 @@ function populateUsersTable(list) {
         lastname +
         "</td><td>" +
         secondLastname +
-        "</td></tr>"
+        "</td><td><button class='borrar' id='" +
+        id +
+        "' onclick=funcionEliminar(this)>Borrar</button></td></tr>"
     );
   }
+  console.log("Antes de obtener id: " + id);
+  const borrar = document.querySelector(".borrar");
+  borrar.addEventListener("click", () => {});
 }
 
 function callBackend() {
   $.ajax({
     method: "GET",
-    url: "http://192.168.1.12:8080/users",
+    url: "http://192.168.1.14:8080/users",
     dataType: "json",
     success: function (datos, text) {
       list = datos;
