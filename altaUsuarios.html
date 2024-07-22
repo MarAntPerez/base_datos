@@ -26,6 +26,8 @@
             id="nombre"
             placeholder="Ingrese el nombre"
             required
+            pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+"
+            title="Ingrese solo letras"
           />
 
           <label for="apellido-paterno">Apellido Paterno:</label>
@@ -33,6 +35,8 @@
             type="text"
             id="apellido-paterno"
             placeholder="Ingrese el apellido paterno"
+            pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+"
+            title="Ingrese solo letras"
             required
           />
 
@@ -42,6 +46,8 @@
             id="apellido-materno"
             placeholder="Ingrese el apellido materno"
             required
+            pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s'-]+"
+            title="Ingrese solo letras"
           />
 
           <button type="submit">Enviar</button>
